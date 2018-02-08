@@ -1,0 +1,20 @@
+--- 
+- 
+  connection: local
+  gather_facts: false
+  hosts: localhost
+  name: "Playbook to launch an AWS instances"
+  tasks: 
+    - 
+      ec2: 
+        assign_public_ip: true
+        aws_access_key: *********
+        aws_secret_key: ********************
+        count: 1
+        group: launch-wizard-2
+        image: ami-26ebbc5c
+        instance_type: t2.micro
+        key_name: vickytest
+        region: us-east-1
+        vpc_subnet_id: subnet-75457259
+        wait: true
